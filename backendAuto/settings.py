@@ -74,6 +74,10 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3030",
     "http://127.0.0.1:3000",
     "http://localhost:3000",
+    "http://optiprimefulfillment.com:3000",
+        "http://16.171.170.252:3000",
+
+
 
     # "*"  
     # Add other allowed origins as needed
@@ -171,8 +175,8 @@ AUTHENTICATION_BACKENDS = [
 
 # CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:3030']
 # CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3030']
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
-CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
+CSRF_TRUSTED_ORIGINS = ["http://optiprimefulfillment.com:3000"]
+CORS_ORIGIN_WHITELIST = ["http://optiprimefulfillment.com:3000"]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = '/static/'
