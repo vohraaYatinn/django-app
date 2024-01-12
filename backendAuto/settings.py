@@ -29,7 +29,11 @@ SECRET_KEY = 'django-insecure-ym=ckuj=a3^5ukzn5-lo!#a&8ub7ryb)&ksp)^70#@^$m1%cyo
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "*",
+    "16.171.170.252",
+    "optiprimefulfillment.com"
+]
 
 RAZORPAY_KEY_ID = 'rzp_test_HMlqO2EbDjaheP'
 RAZORPAY_KEY_SECRET = 'Ca2HJWza3FIqBBtKR4m5bc9Z'
