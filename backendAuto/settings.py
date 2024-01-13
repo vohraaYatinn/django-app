@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ym=ckuj=a3^5ukzn5-lo!#a&8ub7ryb)&ksp)^70#@^$m1%cyo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = [
     "*",
     "16.171.170.252",
@@ -78,8 +78,10 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3030",
     "http://127.0.0.1:3000",
     "http://localhost:3000",
+    "http://optiprimefulfillment.com",
+    "http://optiprimefulfillment.com/",
     "http://optiprimefulfillment.com:3000",
-        "http://16.171.170.252:3000",
+    "http://16.171.170.252:3000",
 
 
 
@@ -179,8 +181,8 @@ AUTHENTICATION_BACKENDS = [
 
 # CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:3030']
 # CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3030']
-CSRF_TRUSTED_ORIGINS = ["http://optiprimefulfillment.com:3000"]
-CORS_ORIGIN_WHITELIST = ["http://optiprimefulfillment.com:3000"]
+CSRF_TRUSTED_ORIGINS = ["http://optiprimefulfillment.com"]
+CORS_ORIGIN_WHITELIST = ["http://optiprimefulfillment.com"]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = '/static/'
