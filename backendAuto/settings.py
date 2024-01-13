@@ -79,7 +79,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:3000",
     "http://optiprimefulfillment.com",
-    "http://optiprimefulfillment.com/",
     "http://optiprimefulfillment.com:3000",
     "http://16.171.170.252:3000",
 
