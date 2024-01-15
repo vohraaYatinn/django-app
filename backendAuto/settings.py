@@ -32,7 +32,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "*",
     "16.171.170.252",
-    "optiprimefulfillment.com"
+    "optiprimefulfillment.com",
+    "api.optiprimefulfillment.com"
 ]
 
 RAZORPAY_KEY_ID = 'rzp_test_HMlqO2EbDjaheP'
@@ -190,7 +191,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/home/ubuntu/djangoa-app/media/'
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",
 # ]
