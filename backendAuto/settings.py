@@ -75,16 +75,11 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://zippy-platypus-1faddb.netlify.app",
-    "http://127.0.0.1:3030",
     "http://127.0.0.1:3000",
     "http://localhost:3000",
-    "http://optiprimefulfillment.com",
+    "https://optiprimefulfillment.com",
     "http://optiprimefulfillment.com:3000",
     "http://16.171.170.252:3000",
-
-
-
     # "*"  
     # Add other allowed origins as needed
 ]
