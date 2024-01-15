@@ -162,6 +162,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+SECURE_SSL_REDIRECT = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -180,8 +181,8 @@ AUTHENTICATION_BACKENDS = [
 
 # CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:3030']
 # CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3030']
-CSRF_TRUSTED_ORIGINS = ["http://optiprimefulfillment.com"]
-CORS_ORIGIN_WHITELIST = ["http://optiprimefulfillment.com"]
+CSRF_TRUSTED_ORIGINS = ["https://optiprimefulfillment.com"]
+CORS_ORIGIN_WHITELIST = ["https://optiprimefulfillment.com"]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = '/static/'
