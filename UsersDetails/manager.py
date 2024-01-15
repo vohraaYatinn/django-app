@@ -28,7 +28,7 @@ class UserManager:
     def fetch_customer_details():
         prefetch_value = Prefetch('user__user_coins',
                                   queryset=CoinsSystem.objects.order_by('-last_updated'), to_attr="coins_user")
-        user = CustomerDetails.objects.all().select_related("user").prefetch_related(prefetch_value)
+        user = CustomerDetails.objects.all().select_related("user").prefetch_related(prefetch_value).order_by("-user__created_at")
         return user
 
     @staticmethod
@@ -55,7 +55,8 @@ class UserManager:
 
     @staticmethod
     def fetch_invoice(data):
-        invoices = InvoicesTable.objects.filter().select_related("user").order_by("-created_at")
+        email = data.get("email")
+        invoices = InvoicesTable.objects.filter(user__email=email).select_related("user").order_by("-created_at")
         return invoices
 
     @staticmethod

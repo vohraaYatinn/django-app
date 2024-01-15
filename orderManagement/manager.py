@@ -109,9 +109,9 @@ class orderManager:
     @staticmethod
     def action_admin_orders(data):
         status = data.get("status", False)
-        order_id = data.get("orderId", False)
-        if(status and order_id):
-            order_obj = ordersCreated.objects.get(id=order_id)
+        line_id = data.get("lineId", False)
+        if(status and line_id):
+            order_obj = lineOrderCreated.objects.get(id=line_id)
             order_obj.status = status
             order_obj.save()
 
@@ -149,7 +149,7 @@ class orderManager:
         email = data.get("email", False)
         orders = []
         if(email):
-            orders = ordersCreated.objects.filter().prefetch_related("order_id", "order_id__product_obj")
+            orders = ordersCreated.objects.filter().prefetch_related("order_id", "order_id__product_obj").order_by("-created_at")
         return orders
 
     @staticmethod
@@ -196,11 +196,11 @@ class orderManager:
     def fetch_customer_orders_dash(data):
         email = data.get("email", False)
         seven_days_ago = datetime.now() - timedelta(days=7)
-        total_orders = ordersCreated.objects.filter(user__email=email).count()
+        total_orders = ordersCreated.objects.filter(user__email = email).count()
         orders_last_Week = ordersCreated.objects.filter(created_at__range=[seven_days_ago, datetime.now()],
-                                                        user__email=email).count()
-        pending_orders = lineOrderCreated.objects.filter(status="pending", product_obj__user__email=email).count()
-        order_deliver = lineOrderCreated.objects.filter(status="delivered", product_obj__user__email=email).count()
+                                                        user__email = email).count()
+        pending_orders = lineOrderCreated.objects.filter(status="pending", product_obj__user__email = email).count()
+        order_deliver = lineOrderCreated.objects.filter(status="delivered", product_obj__user__email = email).count()
         return total_orders, orders_last_Week, pending_orders, order_deliver
 
 

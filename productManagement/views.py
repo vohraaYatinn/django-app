@@ -1,6 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from productManagement.manager import productManager
+from productManagement.models import ProductsCustomer
 from productManagement.serializers import ProductsCustomerSerializer
 
 
@@ -36,10 +37,10 @@ class ProductCustomerAdmin(APIView):
     def get(request):
         try:
             data = request.query_params
-            data_obj = productManager.fetch_products_details_customer(data)
+            data_obj = productManager.fetch_products_details_admin(data)
             serialized_data = ProductsCustomerSerializer(data_obj, many=True)
             insights = {
-                "approved": data_obj.filter(status="approved").count(),
+                "approved": ProductsCustomer.objects.filter(status="approved").count(),
                 "pending": data_obj.filter(status="pending").count()
             }
             return Response({"result": "success", "data": serialized_data.data, "insights":insights}, 200)

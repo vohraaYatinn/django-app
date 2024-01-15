@@ -18,12 +18,15 @@ Including another URLconf
 
 
 from django.urls import include, path
-from CoinsSystem.views import coinsManagement, coinsFetchCustomer, coinsRequestCustomer, coinsAdmin,coinsFetchUser
+from CoinsSystem.views import (coinsManagement, coinsFetchCustomer, coinsRequestCustomer,
+                               coinsAdmin,coinsFetchUser, withdrawAdminIssue, amountChangeUser)
 
 urlpatterns = [
     path(r'coins-manage/', coinsManagement.as_view(), name="coins_api"),
     path(r'coins-fetch-admin/', coinsFetchCustomer.as_view(), name="coins_api"),
     path(r'coins-request-user/', coinsRequestCustomer.as_view(), name="coins_api"),
-    path(r'coins-fetch-user/', coinsFetchUser.as_view(), name="coins_api"),
     path(r'wallet-admin-details/', coinsAdmin.as_view(), name="coins_admin"),
+    path(r'coins-fetch-user/', coinsFetchUser.as_view(), name="coins_api"),
+    path(r'withdraw-request-status/', withdrawAdminIssue.as_view(), name="coins_api"),
+    path(r'user-amount-change/', amountChangeUser.as_view(), name="coins_api"),
 ]

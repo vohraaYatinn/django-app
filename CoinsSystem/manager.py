@@ -1,3 +1,4 @@
+import uuid
 from datetime import datetime, timedelta
 
 from UsersDetails.models import UsersDetails
@@ -62,8 +63,6 @@ class CoinsManager:
                 return False
         return coins_obj
 
-
-
     @staticmethod
     def coins_admin(data):
         action = data.get("action", False)
@@ -73,3 +72,36 @@ class CoinsManager:
         elif action == "withdraw":
             payment = paymentWithdrawal.objects.filter().select_related("user")
         return payment, action
+
+    @staticmethod
+    def coins_withdraw_amount_status(data):
+        withdraw_id = data.get("id", False)
+        payment = paymentWithdrawal.objects.get(id=withdraw_id)
+        payment.status = "completed"
+        payment.save()
+        return True
+
+
+    @staticmethod
+    def user_amount_change(data):
+        user = data.get("userEmail", False)
+        amount = data.get("amount", False)
+        action = data.get('action', False)
+        if user and amount and action:
+            coins_sys = CoinsSystem.objects.get(user__email=user)
+            if action == "topup":
+                coins_sys.coin = int(coins_sys.coin) + int(amount)
+            else:
+                if int(coins_sys.coin) >= int(amount):
+                    coins_sys.coin = int(coins_sys.coin) - int(amount)
+                else:
+                    return "amount must be less than what user is having in his/her account"
+            coins_sys.status = "completed"
+            coins_sys.save()
+            if action == "topup":
+                paymentTransactions.objects.create(
+                    payment_id=uuid.uuid4(),
+                    user=coins_sys.user,
+                    amount=amount
+                )
+            return False

@@ -65,3 +65,25 @@ class coinsAdmin(APIView):
             return Response({"result":"success", "data" : required_data}, 200)
         except Exception as err:
             return Response(str(err), 500)
+
+
+class withdrawAdminIssue(APIView):
+    @staticmethod
+    def post(request):
+        try:
+            data = request.data
+            CoinsManager.coins_withdraw_amount_status(data)
+            return Response({"result": "success", "message": "Status of the request has been changed successfully"}, 200)
+        except Exception as err:
+            return Response(str(err), 500)
+
+
+class amountChangeUser(APIView):
+    @staticmethod
+    def post(request):
+        try:
+            data = request.data
+            CoinsManager.user_amount_change(data)
+            return Response({"result": "success", "message": "Status of the request has been changed successfully"}, 200)
+        except Exception as err:
+            return Response(str(err), 500)

@@ -48,18 +48,17 @@ class productManager:
         products = []
 
         if email:
-            products = ProductsCustomer.objects.filter(status="quotation pending").select_related("user")
+            products = ProductsCustomer.objects.filter(status="pending").select_related("user")
         return products
 
     @staticmethod
     def change_products_status(data):
-        action = data.get("action", False)
-        price = data.get("quotedPrice", False)
-        productId = data.get("productId", False)
+        price = data.get("price", False)
+        productId = data.get("product", False)
 
-        if action and price and productId:
+        if price and productId:
             products = ProductsCustomer.objects.get(id=productId)
             products.quoted_price = price
-            products.status = "product approved"
+            products.status = "approved"
             products.save()
         return products

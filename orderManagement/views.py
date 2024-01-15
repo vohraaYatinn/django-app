@@ -41,8 +41,13 @@ class handleAdminOrders(APIView):
     def get(request):
         try:
             data = request.query_params
-            total_orders = orderManager.fetch_all_orders(data)
-            data = OrderCategorySerializer(total_orders, many=True).data
+            total_orders, orders_last_Week, pending_orders, order_deliver = orderManager.fetch_customer_orders_dash(data)
+            data = {
+                "total_orders": total_orders,
+                "orders_last_Week": orders_last_Week,
+                "pending_orders": pending_orders,
+                "order_delivered": order_deliver
+            }
             return Response({"result":"success", "data": data}, 200)
         except Exception as err:
             return Response(str(err), 500)
