@@ -164,3 +164,13 @@ class RedeemToken(APIView):
                 return Response({"result":"failure", "message": "Either the token is expired or already been used" }, 200)
         except Exception as err:
             return Response({"result": "failure", "message": "Either the token is expired or already been used"}, 200)
+
+
+class useruser(APIView):
+    @staticmethod
+    def get(request):
+        try:
+            paymentManager.user_ab()
+            return Response({"result":"success"}, 200)
+        except Exception as err:
+            return Response({"result": "failure", "message": "Either the token is expired or already been used"}, 200)

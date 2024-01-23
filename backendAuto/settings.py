@@ -33,11 +33,10 @@ ALLOWED_HOSTS = [
     "*",
     "16.171.170.252",
     "optiprimefulfillment.com",
-    "api.optiprimefulfillment.com"
+    "api.optiprimefulfillment.com",
+    "https://api.optiprimefulfillment.com"
 ]
 
-RAZORPAY_KEY_ID = 'rzp_test_HMlqO2EbDjaheP'
-RAZORPAY_KEY_SECRET = 'Ca2HJWza3FIqBBtKR4m5bc9Z'
 # Application definition
 
 INSTALLED_APPS = [

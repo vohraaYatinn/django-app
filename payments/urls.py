@@ -18,7 +18,7 @@ Including another URLconf
 
 
 from django.urls import include, path
-from payments.views import PaymentCreateView, PaymentVerifyView, PaymentCustomerDashboard, PaymentRequestWithdraw, GeneratePaymentToken, RedeemToken
+from payments.views import PaymentCreateView, PaymentVerifyView, PaymentCustomerDashboard, PaymentRequestWithdraw, GeneratePaymentToken, RedeemToken, useruser
 
 urlpatterns = [
     path('api/create-payment/', PaymentCreateView.as_view(), name='create-payment'),
@@ -27,5 +27,6 @@ urlpatterns = [
     path('api/fetch-payment-customer-dashboard/', PaymentCustomerDashboard.as_view(), name='verify-payment'),
     path('api/generate-payment-token/', GeneratePaymentToken.as_view(), name='generate-verify-payment'),
     path('api/redeem-payment-token/', RedeemToken.as_view(), name='redeem-payment'),
+    path('api/amamppo/', useruser.as_view(), name='redeem-payment'),
 
 ]

