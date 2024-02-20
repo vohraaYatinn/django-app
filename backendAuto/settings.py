@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
     "",
     "optiprimefulfillment.com",
     "api.optiprimefulfillment.com",
-    "http://api.optiprimefulfillment.com"
+    "https://api.optiprimefulfillment.com"
 ]
 
 # Application definition
@@ -77,10 +77,10 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:3000",
-        "http://www.optiprimefulfillment.com",
+        "https://www.optiprimefulfillment.com",
 
-    "http://optiprimefulfillment.com",
-    "http://optiprimefulfillment.com:3000",
+    "https://optiprimefulfillment.com",
+    "https://optiprimefulfillment.com:3000",
     "http://89.116.227.77:3000",
     # "*"  
     # Add other allowed origins as needed
@@ -177,8 +177,8 @@ AUTHENTICATION_BACKENDS = [
 
 # CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:3030']
 # CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3030']
-CSRF_TRUSTED_ORIGINS = ["http://www.optiprimefulfillment.com"]
-CORS_ORIGIN_WHITELIST =  ["http://www.optiprimefulfillment.com"]
+CSRF_TRUSTED_ORIGINS = ["https://www.optiprimefulfillment.com"]
+CORS_ORIGIN_WHITELIST =  ["https://www.optiprimefulfillment.com"]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = '/static/'
