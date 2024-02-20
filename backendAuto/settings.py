@@ -177,8 +177,8 @@ AUTHENTICATION_BACKENDS = [
 
 # CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:3030']
 # CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3030']
-CSRF_TRUSTED_ORIGINS = ["http://optiprimefulfillment.com"]
-CORS_ORIGIN_WHITELIST =  ["http://optiprimefulfillment.com"]
+CSRF_TRUSTED_ORIGINS = ["http://www.optiprimefulfillment.com"]
+CORS_ORIGIN_WHITELIST =  ["http://www.optiprimefulfillment.com"]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = '/static/'
